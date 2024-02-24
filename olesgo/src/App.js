@@ -51,12 +51,33 @@ function App() {
     setOneWayOption(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
   
-    console.log("name: ", name);  // we can change this later to actually write to a file
-    console.log("phone number: ", phoneNumber);
-  }
+    const newData = {
+      name: name,
+      number: phoneNumber,
+    };
+  
+    try {
+      const response = await fetch('http://localhost:3001/api/saveData', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newData),
+      });
+  
+      if (response.ok) {
+        console.log('Data successfully submitted');
+      } else {
+        console.error('Failed to submit data');
+      }
+    } catch (error) {
+      console.error('Error submitting data:', error);
+    }
+  };
+  
 
   return (
     <div>
