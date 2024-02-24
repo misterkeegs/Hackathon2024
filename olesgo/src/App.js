@@ -5,13 +5,11 @@ import './App.css';
 import StOlafLogo from './images/StOlafPng.png';
 
 const days = [
-  { value: 'Monday', label: 'Monday' },
-  { value: 'Tuesday', label: 'Tuesday' },
-  { value: 'Wednesday', label: 'Wednesday' },
-  { value: 'Thursday', label: 'Thursday' },
-  { value: 'Friday', label: 'Friday' },
-  { value: 'Saturday', label: 'Saturday' },
-  { value: 'Sunday', label: 'Sunday' }
+  { value: 'Monday', label: 'Monday'},
+  { value: 'Tuesday', label: 'Tuesday'},
+  { value: 'Wednesday', label: 'Wednesday'},
+  { value: 'Thursday', label: 'Thursday'},
+  { value: 'Friday', label: 'Friday'},
 ];
 
 const purposes = [
@@ -25,6 +23,22 @@ const purposes = [
 const animatedComponents = makeAnimated();
 
 const customStyles = {
+  menu: (provided, state) => ({
+    ...provided,
+    width: state.selectProps.width,
+    color: state.selectProps.menuColor,
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    borderBottom: '1px dotted goldenrod',
+    color: state.isSelected ? 'white' : 'black',
+    '&:hover': {
+      backgroundColor: '#FFF7C2'
+    },
+    backgroundColor: state.isSelected ? 'goldenrod' : 'white',
+    width: '370px'
+    
+  }),
   control: (provided, state) => ({
     ...provided,
     width: '370px',
@@ -32,6 +46,7 @@ const customStyles = {
     '&:hover': {
       borderColor: '#263238'
     },
+    
   }),
 };
 
@@ -54,6 +69,7 @@ function App() {
         <a href='https://wp.stolaf.edu/'>
           <img src={StOlafLogo} alt="St Olaf Logo" style={{height: '70px', width: '230px'}}></img>
         </a>
+        <div style={{height:'70px', width: '50px'}}></div>
 
         <h1> 
           <a href='https://wp.stolaf.edu/transportation/oles-go/' style={{ color: '#e8b320'}}>
@@ -63,7 +79,7 @@ function App() {
 
       </div>
         
-      <div  style={{marginLeft: '25px'}}>
+      <div style={{marginLeft: '25px'}}>
       <form action="" id="loginForm">
         <h2><u>Personal Information</u></h2>
         <p></p>
@@ -71,7 +87,7 @@ function App() {
         <input type="text" id="name" class="required-field" required="true"></input>
         <p></p>
         <h3>Phone Number</h3>
-        <p>Desired Format: xxx-xxx-xxxx</p>
+        <p class="desired-format">Desired Format: xxx-xxx-xxxx</p>
         <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required="true" size="10"></input>
         <p></p>
         <h3>Student ID</h3>
@@ -183,16 +199,16 @@ function App() {
         </div>
       )}
         <p></p>
-        <button type="submit" onclick="alert('Form submitted!')">Submit</button>
+        <button class="submit" type="submit" onclick="alert('Form submitted!')">Submit</button>
         <p></p>
       </form>
         
       </div>
-
-      <a style={{ color: '#e8b320'}} href="https://wp.stolaf.edu/transportation/">
-        St. Olaf Transportation Website
-      </a>
-
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'goldenrod', height: '150px'}}>
+        <a style={{color: 'white'}} href="https://wp.stolaf.edu/transportation/">
+          St. Olaf Transportation Website
+        </a>
+      </div>
     </div>
   );
 }
