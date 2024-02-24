@@ -1,1 +1,1 @@
-Keegan Murray I am in your walls
+To run the app, cd into olesgo folder, and run "npm start".
