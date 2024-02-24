@@ -4,23 +4,9 @@ import StOlafLogo from './images/StOlafPng.png';
 
 function App() {
   const [selectedOption, setSelectedOption] = useState('option1');
-  const [input1, setInput1] = useState('');
-  const [input2, setInput2] = useState('');
-  const [input3, setInput3] = useState('');
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
-  };
-
-  const handleInputChange = (event, inputNumber) => {
-    const value = event.target.value;
-    if (inputNumber === 1) {
-      setInput1(value);
-    } else if (inputNumber === 2) {
-      setInput2(value);
-    } else {
-      setInput3(value);
-    }
   };
 
   return (
@@ -56,13 +42,50 @@ function App() {
         <p></p>
         
         <h2><u>Travel Information</u></h2>
-        <p></p>
+        
+        
+        
+
+        <h3>Is this a One-Way Trip?</h3>
+
+        <label>
+          <input type="radio" value="option1" checked={selectedOption === 'option1'} onChange={handleOptionChange} name="options"/>
+            Yes
+        </label>
+        <label>
+          <input type="radio" value="option2" checked={selectedOption === 'option2'} onChange={handleOptionChange} name="options"/>
+            No
+        </label>
+
+        {selectedOption === 'option1' && (
+        <div>
+          {/*<input type="text" value={input1} onChange={(event) => handleInputChange(event, 1)} />*/}
+          <h3>Pick-up Location</h3>
+        <input type="text" id="name" class="required-field" required="true" size="50"></input>
+          <p></p>
         <h3>Destination</h3>
         <input type="text" id="name" class="required-field" required="true" size="50"></input>
         <p></p>
-        <h3>Is this a One-Way Trip?</h3>
-        <input type="radio" id="destination" class="required-field" required="true"></input>
+        
+          <p></p>
+        <h3>Pick-up Date and Time</h3>
         <p></p>
+        <input type="datetime-local" id="pickup" name="pickup" required="true"></input>
+        <p></p>
+        </div>
+      )}
+
+      {selectedOption === 'option2' && (
+        <div>
+          {/*<input type="text" value={input2} onChange={(event) => handleInputChange(event, 2)} />
+          <input type="text" value={input3} onChange={(event) => handleInputChange(event, 3)} />*/}
+          <h3>Pick-up/Return Location</h3>
+        <input type="text" id="name" class="required-field" required="true" size="50"></input>
+          <p></p>
+        <h3>Destination</h3>
+        <input type="text" id="name" class="required-field" required="true" size="50"></input>
+        <p></p>
+          <p></p>
         <h3>Pick-up Date and Time</h3>
         <p></p>
         <input type="datetime-local" id="pickup" name="pickup" required="true"></input>
@@ -71,6 +94,19 @@ function App() {
         <p></p>
         <input type="datetime-local" id="return" name="return" required="true"></input>
         <p></p>
+        </div>
+      )}
+
+        {/*<input type="radio" id="destination" class="required-field" required="true"></input>*/}
+        {/*<p></p>
+        <h3>Pick-up Date and Time</h3>
+        <p></p>
+        <input type="datetime-local" id="pickup" name="pickup" required="true"></input>
+        <p></p>
+        <h3>Return Date and Time</h3>
+        <p></p>
+        <input type="datetime-local" id="return" name="return" required="true"></input>
+        <p></p>*/}
         <h3>Purpose</h3>
         <select list="purpose" id="destination" class="required-field" required="true">
           <option value="none">(none)</option>
@@ -90,28 +126,10 @@ function App() {
         <p style={{ fontSize: '26px', textDecoration: 'underline' }}>
           Personal Information
         </p> 
-        <label>
-          <input type="radio" value="option1" checked={selectedOption === 'option1'} onChange={handleOptionChange} name="options"/>
-            Yes
-        </label>
-        <label>
-          <input type="radio" value="option2" checked={selectedOption === 'option2'} onChange={handleOptionChange} name="options"/>
-            No
-        </label>
+        
       </div>
 
-      {selectedOption === 'option1' && (
-        <div>
-          <input type="text" value={input1} onChange={(event) => handleInputChange(event, 1)} />
-        </div>
-      )}
-
-      {selectedOption === 'option2' && (
-        <div>
-          <input type="text" value={input2} onChange={(event) => handleInputChange(event, 2)} />
-          <input type="text" value={input3} onChange={(event) => handleInputChange(event, 3)} />
-        </div>
-      )}
+      
 
       <a style={{ color: '#e8b320'}} href="https://wp.stolaf.edu/transportation/">
         St. Olaf Transportation Website
