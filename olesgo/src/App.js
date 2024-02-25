@@ -4,6 +4,10 @@ import makeAnimated from 'react-select/animated';
 import './App.css';
 import StOlafLogo from './images/StOlafPng.png';
 
+
+const currentTime = new Date();
+const formattedTime = currentTime.toLocaleTimeString();
+
 const days = [
   { value: 'Monday', label: 'Monday' },
   { value: 'Tuesday', label: 'Tuesday' },
@@ -224,6 +228,7 @@ function App() {
       <a style={{ color: '#e8b320'}} href="https://wp.stolaf.edu/transportation/">
         St. Olaf Transportation Website
       </a>
+      <p>{formattedTime}</p>
 
     </div>
   );
