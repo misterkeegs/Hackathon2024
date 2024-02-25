@@ -1,38 +1,41 @@
-.App {
-  text-align: center;
+h2 {
+  font-family: Arial;
+  color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h3 {
+  font-family: 'Times New Roman';
+  color: goldenrod;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.desired-format {
+  color: grey;
+  font-size: 14px;
+  font-family: 'Times New Roman';
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.submit {
+  background-color: goldenrod;
+  width: 100px;
+  height: 30px;
+  font-size: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.main {
+  background-image: url(./images/background2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.required-field::after {
+    content:" *";
+    color: red;
 }
+
+input[type='radio'] {
+  accent-color: #232323;
+}
+
+
