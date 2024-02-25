@@ -9,9 +9,7 @@ const days = [
   { value: 'Tuesday', label: 'Tuesday' },
   { value: 'Wednesday', label: 'Wednesday' },
   { value: 'Thursday', label: 'Thursday' },
-  { value: 'Friday', label: 'Friday' },
-  { value: 'Saturday', label: 'Saturday' },
-  { value: 'Sunday', label: 'Sunday' }
+  { value: 'Friday', label: 'Friday' }
 ];
 
 const purposes = [
@@ -120,11 +118,11 @@ function App() {
       <form action="" id="loginForm" onSubmit={handleSubmit}>
         <h2><u>Personal Information</u></h2>
         <p></p>
-        <h3>Name</h3>
+        <h3 class="required-field">Name</h3>
         <input type="text" id="name" class="required-field" required="true" onChange={(e) => setName(e.target.value)}></input>
         <p></p>
-        <h3>Phone Number</h3>
-        <p>Desired Format: xxx-xxx-xxxx</p>
+        <h3 class="required-field">Phone Number</h3>
+        <p class="desired-format">Desired Format: xxx-xxx-xxxx</p>
         <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required="true" size="10" onChange={(e) => setPhoneNumber(e.target.value)}></input>
         <p></p>
         <h3 class="required-field">Student ID</h3>
@@ -134,7 +132,7 @@ function App() {
         
         <h2><u>Travel Information</u></h2>
         
-        <h3>Is this a One-Way Trip?</h3>
+        <h3 class="required-field">Is this a One-Way Trip?</h3>
 
         <label>
           <input type="radio" value="option1" checked={selectedOption === 'option1'} onChange={handleOptionChange} name="options"/>
@@ -147,15 +145,15 @@ function App() {
 
         {selectedOption === 'option1' && (
         <div>
-          <h3>Pick-up Location</h3>
+          <h3 class="required-field">Pick-up Location</h3>
         <input type="text" id="name" class="required-field" required="true" size="50" onChange={(e) => setPickupLocation(e.target.value)}></input>
           <p></p>
-        <h3>Destination</h3>
+        <h3 class="required-field">Destination</h3>
         <input type="text" id="name" class="required-field" required="true" size="50" onChange={(e) => setDestination(e.target.value)}></input>
         <p></p>
         
           <p></p>
-        <h3>Pick-up Date and Time</h3>
+        <h3 class="required-field">Pick-up Date and Time</h3>
         <p></p>
         <input type="datetime-local" id="pickup" name="pickup" required="true"></input>
         <p></p>
@@ -164,25 +162,25 @@ function App() {
 
       {selectedOption === 'option2' && (
         <div>
-          <h3>Pick-up/Return Location</h3>
+          <h3 class="required-field">Pick-up/Return Location</h3>
         <input type="text" id="name" class="required-field" required="true" size="50" onChange={(e) => setPickupLocation(e.target.value)}></input>
           <p></p>
-        <h3>Destination</h3>
+        <h3 class="required-field">Destination</h3>
         <input type="text" id="name" class="required-field" required="true" size="50" onChange={(e) => setDestination(e.target.value)}></input>
         <p></p>
           <p></p>
-        <h3>Pick-up Date and Time</h3>
+        <h3 class="required-field">Pick-up Date and Time</h3>
         <p></p>
         <input type="datetime-local" id="pickup" name="pickup" required="true" onChange={(e) => setPickupTimeDate(e.target.value)}></input>
         <p></p>
-        <h3>Return Date and Time</h3>
+        <h3 class="required-field">Return Date and Time</h3>
         <p></p>
         <input type="datetime-local" id="return" name="return" required="true" onChange={(e) => setReturnTimeDate(e.target.value)}></input>
         <p></p>
         </div>
       )}
 
-        <h3>Purpose</h3>
+        <h3 class="required-field">Purpose</h3>
         <Select 
             components={animatedComponents}
             options={purposes}
@@ -198,7 +196,7 @@ function App() {
           <option value="Other">Other</option>
       </select>*/}
         <p></p>
-        <h3>Is this a Recurring Trip?</h3>
+        <h3 class="required-field">Is this a Recurring Trip?</h3>
         <label>
           <input type="radio" value="option3" checked={oneWayOption === 'option3'} onChange={handleOneWayChange} name="options1"/>
             Yes
@@ -210,7 +208,7 @@ function App() {
 
         {oneWayOption === 'option3' && (
         <div>
-          <h3>Day(s) of the week</h3>
+          <h3 class="required-field">Day(s) of the week</h3>
           <Select 
             closeMenuOnSelect={false}
             components={animatedComponents}
@@ -220,7 +218,7 @@ function App() {
             onChange={(selectedOptions) => setDaysOfTheWeek(selectedOptions.map(option => option.value))}
           />
           <p></p>
-        <h3>How often (weekly, bi-weekly, monthly)</h3>
+        <h3 class="required-field">How often (weekly, bi-weekly, monthly)</h3>
         <input type="text" id="name" class="required-field" required="true" size="50" onChange={(e) => setHowOften(e.target.value)}></input>
         <p></p>
         <h3>End date</h3>
