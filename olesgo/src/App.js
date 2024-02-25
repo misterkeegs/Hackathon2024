@@ -128,7 +128,7 @@ function App() {
         <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required="true" size="10" onChange={(e) => setPhoneNumber(e.target.value)}></input>
         <p></p>
         <h3 class="required-field">Student ID</h3>
-        <p></p>
+        <p class="desired-format">Desired Format: xxxxxx</p>
         <input type="text" id="studentID" required="true" pattern="[0-9]{6}" size="5"></input>
         <p></p>
         
@@ -223,10 +223,7 @@ function App() {
         <p></p>
         <h3>End date</h3>
         <input type="date" id="pickup" name="pickup" required="true"></input>
-        
-        <p></p>
-        
-          <p></p>
+        <div style={{height: '20px'}}></div>
         </div>
       )}
 
@@ -237,7 +234,7 @@ function App() {
       )}
         <p></p>
         <button class="submit" type="submit" onclick="alert('Form submitted!')">Submit</button>
-        <p></p>
+        <div style={{height: '40px'}}></div>
       </form>
         
       </div>
