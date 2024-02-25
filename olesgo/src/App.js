@@ -4,6 +4,8 @@ import makeAnimated from 'react-select/animated';
 import './App.css';
 import StOlafLogo from './images/StOlafPng.png';
 
+
+
 const days = [
   { value: 'Monday', label: 'Monday' },
   { value: 'Tuesday', label: 'Tuesday' },
@@ -77,6 +79,8 @@ function App() {
   };
 
   const handleSubmit = async (event) => {
+    const currentTime = new Date();
+    const formattedTime = currentTime.toLocaleString();
     event.preventDefault();
   
     let newData = {
@@ -93,20 +97,30 @@ function App() {
       daysOfTheWeek: daysOfTheWeek,
       howOften: howOften,
       endDate: endDate,
+      timeSubmitted: formattedTime,
     };
 
     if (newData.oneWayTrip === "option1") {
-      newData.oneWayTrip = "yes";
+      newData.oneWayTrip = "Yes";
     }
     else {
-      newData.oneWayTrip = "no";
+      newData.oneWayTrip = "No";
     }
 
     if (newData.recurringTrip === "option3") {
-      newData.recurringTrip = "yes";
+      newData.recurringTrip = "Yes";
     }
     else {
-      newData.recurringTrip = "no";
+      newData.recurringTrip = "No";
+    }
+
+    if (newData.oneWayTrip === "Yes") {
+      newData.returnTimeDate = "";
+    }
+    if (newData.recurringTrip === "No") {
+      newData.daysOfTheWeek = "";
+      newData.howOften = "";
+      newData.endDate = "";
     }
   
     try {
@@ -187,7 +201,7 @@ function App() {
           <p></p>
         <h3 class="required-field">Pick-up Date and Time</h3>
         <p></p>
-        <input type="datetime-local" id="pickup" name="pickup" required="true"></input>
+        <input type="datetime-local" id="pickup" name="pickup" required="true" onChange={(e) => setPickupTimeDate(e.target.value)}></input>
         <p></p>
         </div>
       )}
