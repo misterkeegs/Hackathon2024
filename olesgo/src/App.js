@@ -256,9 +256,11 @@ function App() {
         
       </div>
 
-      <a style={{ color: '#e8b320'}} href="https://wp.stolaf.edu/transportation/">
-        St. Olaf Transportation Website
-      </a>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'goldenrod', height: '125px'}}>
+        <a style={{color: 'white'}} href="https://wp.stolaf.edu/transportation/">
+          St. Olaf Transportation Website
+        </a>
+      </div>
 
     </div>
   );
