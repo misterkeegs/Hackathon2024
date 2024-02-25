@@ -54,6 +54,10 @@ function App() {
   const [selectedOption, setSelectedOption] = useState('option1');
   const [oneWayOption, setOneWayOption] = useState('option3');
 
+  const [name, setName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
@@ -61,6 +65,34 @@ function App() {
   const handleOneWayChange = (event) => {
     setOneWayOption(event.target.value);
   };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  
+    const newData = {
+      name: name,
+      number: phoneNumber,
+    };
+  
+    try {
+      const response = await fetch('http://localhost:3001/api/saveData', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newData),
+      });
+  
+      if (response.ok) {
+        console.log('Data successfully submitted');
+      } else {
+        console.error('Failed to submit data');
+      }
+    } catch (error) {
+      console.error('Error submitting data:', error);
+    }
+  };
+  
 
   return (
     <div class="main">
@@ -79,6 +111,7 @@ function App() {
 
       </div>
         
+
       <div style={{marginLeft: '25px'}}>
       <form action="" id="loginForm">
         <h2><u>Personal Information</u></h2>
@@ -86,9 +119,9 @@ function App() {
         <h3 class="required-field">Name</h3>
         <input type="text" id="name" required="true"></input>
         <p></p>
-        <h3 class="required-field">Phone Number</h3>
+        <h3 class="required-field" required="true" onChange={(e) => setName(e.target.value)}>Phone Number</h3>
         <p class="desired-format">Desired Format: xxx-xxx-xxxx</p>
-        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required="true" size="10"></input>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required="true" size="10" onChange={(e) => setPhoneNumber(e.target.value)}></input>
         <p></p>
         <h3 class="required-field">Student ID</h3>
         <p></p>
