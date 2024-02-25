@@ -116,7 +116,7 @@ function App() {
   
 
   return (
-    <div>
+    <div class="main">
       <div style={{ display: 'flex', alignItems: 'center', backgroundColor: 'lightgrey' }}>
         
         <a href='https://wp.stolaf.edu/'>
