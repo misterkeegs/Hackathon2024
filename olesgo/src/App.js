@@ -23,6 +23,22 @@ const purposes = [
 const animatedComponents = makeAnimated();
 
 const customStyles = {
+  menu: (provided, state) => ({
+    ...provided,
+    width: state.selectProps.width,
+    color: state.selectProps.menuColor,
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    borderBottom: '1px dotted goldenrod',
+    color: state.isSelected ? 'white' : 'black',
+    '&:hover': {
+      backgroundColor: '#FFF7C2'
+    },
+    backgroundColor: state.isSelected ? 'goldenrod' : 'white',
+    width: '370px'
+    
+  }),
   control: (provided, state) => ({
     ...provided,
     width: '370px',
@@ -30,6 +46,7 @@ const customStyles = {
     '&:hover': {
       borderColor: '#263238'
     },
+    
   }),
 };
 
