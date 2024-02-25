@@ -141,7 +141,10 @@ function App() {
       console.error('Error submitting data:', error);
     }
   };
-  
+
+  const printStatement = () => {
+    alert("Form Submitted, Please Refresh To Submit Another Request");
+  }
 
   return (
     <div class="main">
@@ -180,7 +183,7 @@ function App() {
         
         <h3 class="required-field">Is this a One-Way Trip?</h3>
 
-        <label>
+        <label style={{marginRight: "10px"}}>
           <input type="radio" value="option1" checked={selectedOption === 'option1'} onChange={handleOptionChange} name="options"/>
             Yes
         </label>
@@ -243,7 +246,7 @@ function App() {
       </select>*/}
         <p></p>
         <h3 class="required-field">Is this a Recurring Trip?</h3>
-        <label>
+        <label style={{marginRight: "10px"}}>
           <input type="radio" value="option3" checked={oneWayOption === 'option3'} onChange={handleOneWayChange} name="options1"/>
             Yes
         </label>
@@ -279,8 +282,9 @@ function App() {
         </div>
       )}
         <p></p>
-        <button class="submit" type="submit" onclick="alert('Form submitted!')">Submit</button>
-        <div style={{height: '40px'}}></div>
+        <button class="submit" type="submit" onClick={printStatement}>Submit</button>
+        <div style={{height: '40px'}}>
+        </div>
       </form>
         
       </div>
