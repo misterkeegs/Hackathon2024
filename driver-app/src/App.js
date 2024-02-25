@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import StOlafLogo from './images/StOlafPng.png';
+import './App.css';
 
 const currentTime = new Date();
 const formattedTime = currentTime.toLocaleString();
@@ -22,17 +23,18 @@ function App() {
   };
 
   return (
-    <div>
+    <div class="main">
       <div style={{ display: 'flex', alignItems: 'center', backgroundColor: 'lightgrey' }}>
         
         <a href='https://wp.stolaf.edu/'>
           <img src={StOlafLogo} alt="St Olaf Logo" style={{height: '70px', width: '230px'}}></img>
         </a>
-
+        <div style={{height:'70px', width: '50px'}}></div>
+        
         <h1> 
           <a href='https://wp.stolaf.edu/transportation/oles-go/' style={{ color: '#e8b320'}}>
             OlesGo 
-          </a> Driver Page
+          </a> Driver's Page
         </h1>
 
       </div>
