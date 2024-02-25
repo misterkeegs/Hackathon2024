@@ -63,7 +63,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div class="main">
       <div style={{ display: 'flex', alignItems: 'center', backgroundColor: 'lightgrey' }}>
         
         <a href='https://wp.stolaf.edu/'>
@@ -83,23 +83,23 @@ function App() {
       <form action="" id="loginForm">
         <h2><u>Personal Information</u></h2>
         <p></p>
-        <h3>Name</h3>
-        <input type="text" id="name" class="required-field" required="true"></input>
+        <h3 class="required-field">Name</h3>
+        <input type="text" id="name" required="true"></input>
         <p></p>
-        <h3>Phone Number</h3>
+        <h3 class="required-field">Phone Number</h3>
         <p class="desired-format">Desired Format: xxx-xxx-xxxx</p>
         <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required="true" size="10"></input>
         <p></p>
-        <h3>Student ID</h3>
+        <h3 class="required-field">Student ID</h3>
         <p></p>
-        <input type="text" id="studentID" class="required-field" required="true" pattern="[0-9]{6}" size="5"></input>
+        <input type="text" id="studentID" required="true" pattern="[0-9]{6}" size="5"></input>
         <p></p>
         
         <h2><u>Travel Information</u></h2>
         
-        <h3>Is this a One-Way Trip?</h3>
+        <h3 class="required-field">Is this a One-Way Trip?</h3>
 
-        <label>
+        <label style={{marginRight: '10px'}}>
           <input type="radio" value="option1" checked={selectedOption === 'option1'} onChange={handleOptionChange} name="options"/>
             Yes
         </label>
@@ -110,15 +110,15 @@ function App() {
 
         {selectedOption === 'option1' && (
         <div>
-          <h3>Pick-up Location</h3>
-        <input type="text" id="name" class="required-field" required="true" size="50"></input>
+          <h3 class="required-field">Pick-up Location</h3>
+        <input type="text" id="name" required="true" size="50"></input>
           <p></p>
-        <h3>Destination</h3>
-        <input type="text" id="name" class="required-field" required="true" size="50"></input>
+        <h3 class="required-field">Destination</h3>
+        <input type="text" id="name" required="true" size="50"></input>
         <p></p>
         
           <p></p>
-        <h3>Pick-up Date and Time</h3>
+        <h3 class="required-field">Pick-up Date and Time</h3>
         <p></p>
         <input type="datetime-local" id="pickup" name="pickup" required="true"></input>
         <p></p>
@@ -127,25 +127,25 @@ function App() {
 
       {selectedOption === 'option2' && (
         <div>
-          <h3>Pick-up/Return Location</h3>
-        <input type="text" id="name" class="required-field" required="true" size="50"></input>
+          <h3 class="required-field">Pick-up/Return Location</h3>
+        <input type="text" id="name" required="true" size="50"></input>
           <p></p>
-        <h3>Destination</h3>
-        <input type="text" id="name" class="required-field" required="true" size="50"></input>
+        <h3 class="required-field">Destination</h3>
+        <input type="text" id="name" required="true" size="50"></input>
         <p></p>
           <p></p>
-        <h3>Pick-up Date and Time</h3>
+        <h3 class="required-field">Pick-up Date and Time</h3>
         <p></p>
         <input type="datetime-local" id="pickup" name="pickup" required="true"></input>
         <p></p>
-        <h3>Return Date and Time</h3>
+        <h3 class="required-field">Return Date and Time</h3>
         <p></p>
         <input type="datetime-local" id="return" name="return" required="true"></input>
         <p></p>
         </div>
       )}
 
-        <h3>Purpose</h3>
+        <h3 class="required-field">Purpose</h3>
         <Select 
             components={animatedComponents}
             options={purposes}
@@ -160,8 +160,8 @@ function App() {
           <option value="Other">Other</option>
       </select>*/}
         <p></p>
-        <h3>Is this a Recurring Trip?</h3>
-        <label>
+        <h3 class="required-field">Is this a Recurring Trip?</h3>
+        <label style={{marginRight: '10px'}}>
           <input type="radio" value="option3" checked={oneWayOption === 'option3'} onChange={handleOneWayChange} name="options1"/>
             Yes
         </label>
@@ -204,7 +204,7 @@ function App() {
       </form>
         
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'goldenrod', height: '150px'}}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'goldenrod', height: '125px'}}>
         <a style={{color: 'white'}} href="https://wp.stolaf.edu/transportation/">
           St. Olaf Transportation Website
         </a>

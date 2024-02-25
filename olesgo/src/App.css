@@ -1,7 +1,3 @@
-.App {
-  text-align: center;
-}
-
 h2 {
   font-family: Arial;
   color: black;
@@ -23,6 +19,22 @@ h3 {
   font-size: 20px;
 }
 
+.main {
+  background-image: url(./images/background2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
 
+}
+
+
+.required-field::after {
+    content:" *";
+    color: red;
+}
+
+input[type='radio'] {
+  accent-color: #232323;
+}
 
 
