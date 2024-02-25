@@ -79,7 +79,7 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
   
-    const newData = {
+    let newData = {
       name: name,
       number: phoneNumber,
       studentID: studentID,
@@ -94,6 +94,20 @@ function App() {
       howOften: howOften,
       endDate: endDate,
     };
+
+    if (newData.oneWayTrip === "option1") {
+      newData.oneWayTrip = "yes";
+    }
+    else {
+      newData.oneWayTrip = "no";
+    }
+
+    if (newData.recurringTrip === "option3") {
+      newData.recurringTrip = "yes";
+    }
+    else {
+      newData.recurringTrip = "no";
+    }
   
     try {
       const response = await fetch('http://localhost:3001/api/saveData', {
